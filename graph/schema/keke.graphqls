@@ -1,0 +1,75 @@
+extend type Mutation {
+  createKeke(input: createKekeReq): CreateKekeResponse!
+  updateKeke(input: updateKekeReq): UpdateKekeResponse!
+  deleteKeke(id: String!): Empty!
+}
+
+extend type Query {
+  getListKekes(input: GetListKekesReq!): GetListKekesResponse!
+  getSingleKeke(id: String!): GetSingleKekeResponse!
+}
+
+input GetListKekesReq {
+    limit: Int!
+    offset: Int!
+}
+
+type GetListKekesResponse {
+    getKekes: [GetSingleKekeResponse!]!
+    count: Int!
+}
+
+type GetSingleKekeResponse {
+    keke_status: String!
+    keke_number: String!
+    started_price: Float!
+    end_price: Float!
+    place_count: Int!
+    colour: String!
+    id: String!
+    created_at: String!
+    updated_at: String!
+}
+
+type CreateKekeResponse {
+    keke_status: String!
+    keke_number: String!
+    started_price: Float!
+    end_price: Float!
+    place_count: Int!
+    colour: String!
+    id: String!
+    created_at: String!
+    updated_at: String!
+}
+
+type UpdateKekeResponse {
+    keke_status: String!
+    keke_number: String!
+    started_price: Float!
+    end_price: Float!
+    place_count: Int!
+    colour: String!
+    id: String!
+    created_at: String!
+    updated_at: String!
+}
+
+input createKekeReq {
+    keke_status: String!
+    keke_number: String!
+    started_price: Float!
+    end_price: Float!
+    place_count: Int!
+    colour: String!
+}
+
+input updateKekeReq {
+    keke_status: String!
+    keke_number: String!
+    started_price: Float!
+    end_price: Float!
+    place_count: Int!
+    colour: String!
+    id: String!
+}

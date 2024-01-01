@@ -1,0 +1,91 @@
+syntax="proto3";
+
+package order_service;
+option go_package="genproto/order_service";
+
+import "google/protobuf/empty.proto";
+
+
+message CreateCarReq {
+    bool is_covid = 1;
+    bool is_air_condt = 2;
+    string car_status = 3;
+    string car_number = 4;
+    string car_name = 5;
+    double started_price = 6;
+    double end_price = 7;
+    int32  place_count = 8;
+    string colour = 9;
+}
+
+message CreateCarResponse {
+    bool is_covid = 1;
+    bool is_air_condt = 2;
+    string car_status = 3;
+    string car_number = 4;
+    string car_name = 5;
+    double started_price = 6;
+    double end_price = 7;
+    int32  place_count = 8;
+    string colour = 9;
+    string id = 10;
+    string created_at = 11;
+    string updated_at = 12;
+}
+
+message CarId {
+    string id = 1;
+}
+
+message GetSingleCarResponse {
+    bool is_covid = 1;
+    bool is_air_condt = 2;
+    string car_status = 3;
+    string car_number = 4;
+    string car_name = 5;
+    double started_price = 6;
+    double end_price = 7;
+    int32  place_count = 8;
+    string colour = 9;
+    string id = 10;
+    string created_at = 11;
+    string updated_at = 12;
+}
+
+message GetListCarsReq {
+    int32 limit = 1;
+    int32 offset = 2;
+}
+
+message GetListCarsResponse {
+    repeated GetSingleCarResponse getCars = 1;
+    int32 count = 2;
+}
+
+message UpdateCarReq {
+    bool is_covid = 1;
+    bool is_air_condt = 2;
+    string car_status = 3;
+    string car_number = 4;
+    string car_name = 5;
+    double started_price = 6;
+    double end_price = 7;
+    int32  place_count = 8;
+    string colour = 9;
+    string id = 10;
+}
+
+message UpdateCarResponse {
+    bool is_covid = 1;
+    bool is_air_condt = 2;
+    string car_status = 3;
+    string car_number = 4;
+    string car_name = 5;
+    double started_price = 6;
+    double end_price = 7;
+    int32  place_count = 8;
+    string colour = 9;
+    string id = 10;
+    string created_at = 11;
+    string updated_at = 12;
+}

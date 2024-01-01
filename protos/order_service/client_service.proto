@@ -1,0 +1,25 @@
+syntax="proto3";
+
+package order_service;
+option go_package="genproto/order_service";
+
+import "google/protobuf/empty.proto";
+import "merchant.proto";
+import "user.proto";
+
+service ClientService {
+
+    rpc CreateMerchant(CreateMerchantReq) returns(CreateMerchantResponse) {}
+    rpc GetSingleMerchant(MerchantId) returns(GetSingleMerchantResponse) {}
+    rpc GetListMerchants(GetListMerchantsReq) returns(GetListMerchantsResponse) {}
+    rpc UpdateMerchant(UpdateMerchantReq) returns(UpdateMerchantResponse) {}
+    rpc DeleteMerchant(MerchantId) returns(google.protobuf.Empty) {}
+
+
+    rpc CreateUser(CreateUserReq) returns(CreateUserResponse) {}
+    rpc GetSingleUser(UserId) returns(GetSingleUserResponse) {}
+    rpc GetListUsers(GetListUsersReq) returns(GetListUsersResponse) {}
+    rpc UpdateUser(UpdateUserReq) returns(UpdateUserResponse) {}
+    rpc DeleteUser(UserId) returns(google.protobuf.Empty) {}
+
+}

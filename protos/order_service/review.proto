@@ -1,0 +1,100 @@
+syntax="proto3";
+
+package order_service;
+option go_package="genproto/order_service";
+
+import "google/protobuf/empty.proto";
+
+
+message CreateReviewReq {
+    string user_id = 1;
+    string merchant_id = 2;
+    // string bus_id = 3;
+    double rate = 4;
+    string review_content = 5;
+}
+
+message CreateReviewResponse {
+    string id = 1;
+    string user_id = 2;
+    string merchant_id = 3;
+    // string bus_id = 4;
+    double rate = 5;
+    string created_at = 6;
+    string updated_at = 7;
+    string review_content = 8;
+}
+
+message ReviewId {
+    string id = 1;
+}
+
+message GetSingleReviewResponse {
+    string id = 1;
+    string user_id = 2;
+    string merchant_id = 3;
+    // string bus_id = 4;
+    double rate = 5;
+    string created_at = 6;
+    string updated_at = 7;
+    string review_content = 8;
+}
+
+message GetListReviewsReq {
+    int32 limit = 1;
+    int32 offset = 2;
+}
+
+message GetListReviewsResponse {
+    repeated GetSingleReviewResponse getReviews = 1;
+    int32 count = 2;
+}
+
+message UpdateReviewReq {
+    string id = 1;
+    double rate = 2;
+    string review_content = 3;
+}
+
+message UpdateReviewResponse {
+    string id = 1;
+    double rate = 2;
+    string review_content = 3;
+    string created_at = 4;
+    string updated_at = 5;
+}
+
+message CreateReplyReviewsReq {
+    string sender_id = 1;
+    string review_id = 2;
+    string content = 3;
+}
+
+message CreateReplyReviewsResponse {
+    string id = 1;
+    string sender_id = 2;
+    string review_id = 3;
+    string content = 4;
+    string created_at = 5;
+    string updated_at = 6;
+}
+
+message UpdateReplyReviewReq {
+    string id = 1;
+    string sender_id = 2;
+    string content = 3;
+}
+
+message ReviewComment {
+    string id = 1;
+    string review_id = 2;
+    string sender_id = 3;
+    string content = 4;
+    string created_at = 5;
+    string updated_at = 6;
+}
+
+message GetReplyReviewsResponse {
+    repeated ReviewComment reviewcomment = 1;
+    int32 total_review_comment = 2; 
+}

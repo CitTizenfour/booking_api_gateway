@@ -1,0 +1,95 @@
+syntax="proto3";
+
+package order_service;
+option go_package="genproto/order_service";
+
+import "google/protobuf/empty.proto";
+
+
+message CreateBusReq {
+    string driver_id = 1;
+    string merchant_id = 2;
+    string region_id = 3;
+    string bus_status = 4;
+    string bus_name = 5;
+    string bus_number = 6;
+    string bus_type = 7;
+    double started_price = 8;
+    double end_price = 9;
+    int32 booking_count = 10;
+    int32 place_count = 11;
+}
+
+message CreateBusResponse {
+    string driver_id = 1;
+    string merchant_id = 2;
+    string region_id = 3;
+    string bus_status = 4;
+    string bus_name = 5;
+    string bus_number = 6;
+    string bus_type = 7;
+    double started_price = 8;
+    double end_price = 9;
+    int32 booking_count = 10;
+    int32 place_count = 11;
+    string created_at = 12;
+    string updated_at = 13;
+    string id = 14;
+}
+
+message BusId {
+    string id = 1;
+}
+
+message GetSingleBusResponse {
+    string driver_id = 1;
+    string merchant_id = 2;
+    string region_id = 3;
+    string bus_status = 4;
+    string bus_name = 5;
+    string bus_number = 6;
+    string bus_type = 7;
+    double started_price = 8;
+    double end_price = 9;
+    int32 booking_count = 10;
+    int32 place_count = 11;
+    string created_at = 12;
+    string updated_at = 13;
+    string id = 14;
+}
+
+message GetListBusesReq {
+    int32 limit = 1;
+    int32 offset = 2;
+}
+
+message GetListBusesResponse {
+    repeated GetSingleBusResponse getBuses = 1;
+    int32 count = 2;
+}
+
+message UpdateBusReq {
+    string bus_status = 1;
+    string bus_name = 2;
+    string bus_number = 3;
+    string bus_type = 4;
+    double started_price = 5;
+    double end_price = 6;
+    int32 booking_count = 7;
+    int32 place_count = 8;
+    string id = 9;
+}
+
+message UpdateBusResponse {
+    string bus_status = 1;
+    string bus_name = 2;
+    string bus_number = 3;
+    string bus_type = 4;
+    double started_price = 5;
+    double end_price = 6;
+    int32 booking_count = 7;
+    int32 place_count = 8;
+    string created_at = 13;
+    string updated_at = 14;
+    string id = 15;
+}

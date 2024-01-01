@@ -1,0 +1,56 @@
+extend type Mutation {
+  createOrder(input: createOrderReq): CreateOrderResponse!
+  updateOrder(input: updateOrderReq): UpdateOrderResponse!
+  deleteOrder(id: String!): Empty!  
+}
+
+extend type Query {
+  getListOrders(input: GetListOrdersReq!): GetListOrdersResponse!
+  getSingleOrder(id: String!): GetSingleOrderResponse!
+}
+
+type GetListOrdersResponse {
+  getorders: [GetSingleOrderResponse!]!
+  count: Int!
+}
+
+input GetListOrdersReq {
+  limit: Int!
+  offset: Int!
+}
+
+type CreateOrderResponse {
+  id: String!
+  user_id: String!
+  merchant_id: String!
+  created_at: String!
+  updated_at: String!
+}
+
+type UpdateOrderResponse {
+  id: String!
+  user_id: String!
+  merchant_id: String!
+  created_at: String!
+  updated_at: String!
+}
+
+
+type GetSingleOrderResponse {
+  id: String!
+  user_id: String!
+  merchant_id: String!
+  created_at: String!
+  updated_at: String!
+}
+
+input createOrderReq {
+  user_id: String!
+  merchant_id: String!
+}
+
+input updateOrderReq {
+  id: String!
+  user_id: String!
+  merchant_id: String!    
+}

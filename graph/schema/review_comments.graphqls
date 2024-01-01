@@ -1,0 +1,55 @@
+extend type Mutation {
+  createReplyReview(input: createReviewReplyReq): CreateReviewReplyResponse!
+  updateReplyReview(input: updateReviewReplyReq): UpdateReviewReplyResponse!
+  deleteReplyReview(id: String!): Empty!
+}
+
+
+extend type Query {
+  GetReplyReviews(id: String!): GetReplyReviewsResponse!
+}
+
+
+type GetReplyReviewsResponse {
+  getReviews: [ReviewComment!]!
+  count: Int!
+}
+
+type ReviewComment {
+    id: String!
+    review_id: String!
+    sender_id: String!
+    content: String!
+    created_at: String!
+    updated_at: String!
+}
+
+type CreateReviewReplyResponse {
+  id: String!
+  sender_id: String!
+  review_id: String!
+  content: String!
+  created_at: String!
+  updated_at: String!
+}
+
+type UpdateReviewReplyResponse {
+  id: String!
+  sender_id: String!
+  review_id: String!
+  content: String!
+  created_at: String!
+  updated_at: String!
+}
+
+input createReviewReplyReq {
+  sender_id: String!
+  review_id: String!
+  content: String!
+}
+
+input updateReviewReplyReq {
+  id: String!
+  sender_id: String!
+  content: String!
+}

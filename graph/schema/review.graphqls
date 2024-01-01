@@ -1,0 +1,66 @@
+extend type Mutation {
+  createReview(input: createReviewReq): CreateReviewResponse!
+  updateReview(input: updateReviewReq): UpdateReviewResponse!
+  deleteReview(id: String!): Empty!
+}
+
+
+extend type Query {
+  getListReviews(input: GetListReviewsReq!): GetListReviewsResponse!
+  getSingleReview(id: String!): GetSingleReviewResponse!
+}
+
+
+type GetListReviewsResponse {
+  getReviews: [GetSingleReviewResponse!]!
+  count: Int!
+}
+
+input GetListReviewsReq {
+  limit: Int!
+  offset: Int!
+}
+
+type CreateReviewResponse {
+  id: String!
+  user_id: String!
+  merchant_id: String!
+  rate: Float!
+  review_content: String!
+  created_at: String!
+  updated_at: String!
+}
+
+type UpdateReviewResponse {
+  id: String!
+  user_id: String!
+  merchant_id: String!
+  rate: Float!
+  review_content: String!
+  created_at: String!
+  updated_at: String!
+}
+
+
+type GetSingleReviewResponse {
+  id: String!
+  user_id: String!
+  merchant_id: String!
+  rate: Float!
+  review_content: String!
+  created_at: String!
+  updated_at: String!
+}
+
+input createReviewReq {
+  user_id: String!
+  merchant_id: String!
+  rate: Float!
+  review_content: String!
+}
+
+input updateReviewReq {
+  id: String!
+  rate: Float!
+  review_content: String!   
+}

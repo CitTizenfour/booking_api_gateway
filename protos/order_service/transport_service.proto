@@ -1,0 +1,50 @@
+syntax="proto3";
+
+package order_service;
+option go_package="genproto/order_service";
+
+import "google/protobuf/empty.proto";
+import "bus.proto";
+import "driver.proto";
+import "car.proto";
+import "keke.proto";
+import "bike.proto";
+
+service TransportService {
+    
+    // Driver
+    rpc CreateDriver(CreateDriverReq) returns(CreateDriverResponse) {}
+    rpc GetSingleDriver(DriverId) returns(GetSingleDriverResponse) {}
+    rpc GetListDrivers(GetListDriversReq) returns(GetListDriversResponse) {}
+    rpc UpdateDriver(UpdateDriverReq) returns(UpdateDriverResponse) {}
+    rpc DeleteDriver(DriverId) returns(google.protobuf.Empty) {}
+
+    // Car
+    rpc CreateCar(CreateCarReq) returns(CreateCarResponse) {}
+    rpc GetSingleCar(CarId) returns(GetSingleCarResponse) {}
+    rpc GetListCars(GetListCarsReq) returns(GetListCarsResponse) {}
+    rpc UpdateCar(UpdateCarReq) returns(UpdateCarResponse) {}
+    rpc DeleteCar(CarId) returns(google.protobuf.Empty) {}
+
+    // Keke
+    rpc CreateKeke(CreateKekeReq) returns(CreateKekeResponse) {}
+    rpc GetSingleKeke(KekeId) returns(GetSingleKekeResponse) {}
+    rpc GetListKekes(GetListKekesReq) returns(GetListKekesResponse) {}
+    rpc UpdateKeke(UpdateKekeReq) returns(UpdateKekeResponse) {}
+    rpc DeleteKeke(KekeId) returns(google.protobuf.Empty) {}
+
+    // Bike
+    rpc CreateBike(CreateBikeReq) returns(CreateBikeResponse) {}
+    rpc GetSingleBike(BikeId) returns(GetSingleBikeResponse) {}
+    rpc GetListBikes(GetListBikesReq) returns(GetListBikesResponse) {}
+    rpc UpdateBike(UpdateBikeReq) returns(UpdateBikeResponse) {}
+    rpc DeleteBike(BikeId) returns(google.protobuf.Empty) {}
+
+    // Bus
+    rpc CreateBus(CreateBusReq) returns(CreateBusResponse) {}
+    rpc GetSingleBus(BusId) returns(GetSingleBusResponse) {}
+    rpc GetListBuses(GetListBusesReq) returns(GetListBusesResponse) {}
+    rpc UpdateBus(UpdateBusReq) returns(UpdateBusResponse) {}
+    rpc DeleteBus(BusId) returns(google.protobuf.Empty) {}
+
+}

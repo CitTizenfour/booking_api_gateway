@@ -1,0 +1,117 @@
+extend type Mutation {
+  createUser(input: createUserReq): CreateUserResponse!
+  updateUser(input: updateUserReq): UpdateUserResponse!
+  createMerchant(input: createMerchantReq): CreateMerchantResponse!
+  updateMerchant(input: updateMerchantReq): UpdateMerchantResponse!
+  deleteUser(id: String!): Empty!
+  deleteMerchant(id: String!): Empty!
+}
+
+scalar Empty
+
+extend type Query {
+  getListUsers(input: GetListUsersReq!): GetListUsersResponse!
+  getSingleUser(id: String!): GetSingleUserResponse!
+  getListMerchant(input: GetListMerchantReq!): GetListMerchantResponse!
+  getSingleMerchant(id: String!): GetSingleMerchantResponse!
+}
+
+type CreateMerchantResponse {
+  id: String!
+  name: String!
+  payment_history: String!
+  phone_number: String!
+  created_at: String!
+  updated_at: String!
+}
+
+type UpdateMerchantResponse {
+  id: String!
+  name: String!
+  payment_history: String!
+  phone_number: String!
+  created_at: String!
+  updated_at: String!
+}
+
+type CreateUserResponse {
+  id: String!
+  name: String!
+  payment_history: String!
+  phone_number: String!
+  created_at: String!
+  updated_at: String!
+}
+
+input createUserReq {
+  name: String!
+  payment_history: String!
+  phone_number: String!
+}
+
+input createMerchantReq {
+  name: String!
+  payment_history: String!
+  phone_number: String! 
+}
+
+type UpdateUserResponse {
+  id: String!
+  name: String!
+  payment_history: String!
+  phone_number: String!
+  created_at: String!
+  updated_at: String!
+}
+
+input updateUserReq {
+  id: String!
+  name: String!
+  payment_history: String!
+  phone_number: String! 
+}
+
+input updateMerchantReq {
+  id: String!
+  name: String!
+  payment_history: String!
+  phone_number: String!   
+}
+
+type GetListUsersResponse {
+  getUsers: [GetSingleUserResponse!]!
+  count: Int!
+}
+
+type GetListMerchantResponse {
+  getmerchants: [GetSingleMerchantResponse!]!
+  count: Int!
+}
+
+input GetListUsersReq {
+  limit: Int!
+  offset: Int!
+}
+
+input GetListMerchantReq {
+  limit: Int!
+  offset: Int!  
+}
+
+type GetSingleUserResponse {
+  id: String!
+  name: String!
+  payment_history: String!
+  phone_number: String!
+  created_at: String!
+  updated_at: String!
+}
+
+type GetSingleMerchantResponse {
+  id: String!
+  name: String!
+  payment_history: String!
+  phone_number: String!
+  created_at: String!
+  updated_at: String!  
+}

@@ -1,0 +1,75 @@
+extend type Mutation {
+  createBike(input: createBikeReq): CreateBikeResponse!
+  updateBike(input: updateBikeReq): UpdateBikeResponse!
+  deleteBike(id: String!): Empty!
+}
+
+extend type Query {
+  getListBikes(input: GetListBikesReq!): GetListBikesResponse!
+  getSingleBike(id: String!): GetSingleBikeResponse!
+}
+
+input GetListBikesReq {
+    limit: Int!
+    offset: Int!
+}
+
+type GetListBikesResponse {
+    getBikes: [GetSingleBikeResponse!]!
+    count: Int!
+}
+
+type GetSingleBikeResponse {
+    bike_status: String!
+    bike_number: String!
+    bike_model: String!
+    started_price: Float!
+    end_price: Float!
+    colour: String!
+    id: String!
+    created_at: String!
+    updated_at: String!
+}
+
+type CreateBikeResponse {
+    bike_status: String!
+    bike_number: String!
+    bike_model: String!
+    started_price: Float!
+    end_price: Float!
+    colour: String!
+    id: String!
+    created_at: String!
+    updated_at: String!
+}
+
+type UpdateBikeResponse {
+    bike_status: String!
+    bike_number: String!
+    bike_model: String!
+    started_price: Float!
+    end_price: Float!
+    colour: String!
+    id: String!
+    created_at: String!
+    updated_at: String!
+}
+
+input createBikeReq {
+    bike_status: String!
+    bike_number: String!
+    bike_model: String!
+    started_price: Float!
+    end_price: Float!
+    colour: String!
+}
+
+input updateBikeReq {
+    bike_status: String!
+    bike_number: String!
+    bike_model: String!
+    started_price: Float!
+    end_price: Float!
+    colour: String!
+    id: String!
+}

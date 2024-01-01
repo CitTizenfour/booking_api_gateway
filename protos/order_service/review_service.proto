@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package order_service;
+option go_package="genproto/order_service";
+
+import "google/protobuf/empty.proto";
+import "review.proto";
+
+service ReviewService {
+
+    rpc CreateReview(CreateReviewReq) returns(CreateReviewResponse) {}
+    rpc GetSingleReview(ReviewId) returns(GetSingleReviewResponse) {}
+    rpc GetListReviews(GetListReviewsReq) returns(GetListReviewsResponse) {}
+    rpc UpdateReview(UpdateReviewReq) returns(UpdateReviewResponse) {}
+    rpc DeleteReview(ReviewId) returns(google.protobuf.Empty) {}
+
+    rpc CreateReplyReview(CreateReplyReviewsReq) returns(CreateReplyReviewsResponse) {}
+    rpc GetReplyReviews(ReviewId) returns(GetReplyReviewsResponse) {}
+    rpc DeleteReplyReview(ReviewId) returns(google.protobuf.Empty) {}
+    rpc UpdateReplyReview(UpdateReplyReviewReq) returns(CreateReplyReviewsResponse) {}
+
+
+}

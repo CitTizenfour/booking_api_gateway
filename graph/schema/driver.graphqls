@@ -1,0 +1,60 @@
+extend type Mutation {
+  createDriver(input: createDriverReq): CreateDriverResponse!
+  updateDriver(input: updateDriverReq): UpdateDriverResponse!
+  deleteDriver(id: String!): Empty!
+}
+
+extend type Query {
+  getListDrivers(input: GetListDriversReq!): GetListDriversResponse!
+  getSingleDriver(id: String!): GetSingleDriverResponse!
+}
+
+input GetListDriversReq {
+    limit: Int!
+    offset: Int!
+}
+
+type GetListDriversResponse {
+    getDrivers: [GetSingleDriverResponse!]!
+    count: Int!
+}
+
+type GetSingleDriverResponse {
+    driver_name: String!
+    phone_number: String!
+    experience: String!
+    id: String!
+    created_at: String!
+    updated_at: String!
+}
+
+type CreateDriverResponse {
+    driver_name: String!
+    phone_number: String!
+    experience: String!
+    id: String!
+    created_at: String!
+    updated_at: String!
+}
+
+type UpdateDriverResponse {
+    driver_name: String!
+    phone_number: String!
+    experience: String!
+    id: String!
+    created_at: String!
+    updated_at: String!
+}
+
+input createDriverReq {
+    driver_name: String!
+    phone_number: String!
+    experience: String!
+}
+
+input updateDriverReq {
+    driver_name: String!
+    phone_number: String!
+    experience: String!
+    id: String!
+}

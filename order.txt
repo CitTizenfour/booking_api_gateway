@@ -1,0 +1,199 @@
+ORDER {
+    query {
+      getSingleOrder(id: "d1b03070-7be5-4120-a464-2bb7f37b3bd7") {
+        id
+        user_id
+        merchant_id
+        created_at
+        updated_at
+      }
+    }
+    query {
+      getListOrders(input: { limit: 10, offset: 0 }) {
+        getorders {
+          id
+          user_id
+          merchant_id
+          created_at
+          updated_at
+        }
+        count
+      }
+    }
+    mutation {
+      createOrder(input: { user_id: "77029d6b-574e-4623-8dd5-ed5935a0a111", merchant_id: "77029d6b-574e-4623-8dd5-ed5935a0a456" }) {
+        id
+        user_id
+        merchant_id
+        created_at
+        updated_at
+      }
+    }
+    mutation {
+      updateOrder	(input: { id: "08e159f4-f8aa-4172-8e8b-ce481f1ea5c9",user_id: "11129d6b-574e-4623-8dd5-ed5935a0a111", merchant_id: "11129d6b-574e-4623-8dd5-ed5935a0a456" }) {
+        id
+        user_id
+        merchant_id
+        created_at
+        updated_at
+      }
+    }
+}
+
+USER    {
+    query {
+      getSingleUser(id: "db53c456-78ee-47a8-9a2c-b7d2446fdc4c") {
+        id
+        name
+        payment_history
+        phone_number
+        created_at
+        updated_at
+      }
+    }
+    query {
+      getListUsers(input: {limit:10, offset:0}) {
+        getUsers{
+            id
+            name
+            payment_history
+        	phone_number
+            created_at
+            updated_at
+        	}
+        count
+        }
+    }
+    mutation {
+	    createUser(input:{name:"SSSS", payment_history:"qwer", phone_number:"998946769898"})  {
+        id
+        name
+        payment_history
+	    	phone_number
+        created_at
+        updated_at
+        }    
+    }
+    mutation {
+        updateUser(input:{
+        id:"c7a04045-ad00-4a4a-8575-5e0d772b3d76", 
+        name:"EWEWE", payment_history:"1234", phone_number: "99894"}) {
+        id
+        name
+        payment_history
+        phone_number
+        created_at
+        updated_at
+        }
+    }
+    mutation {
+	    deleteUser (id:"c7a04045-ad00-4a4a-8575-5e0d772b3d76")    
+    }
+}
+
+Merchant {
+    mutation {
+	    updateMerchant (input: {
+        id:"6cf9d631-a3b7-4b88-8065-1234f81ca2a2"
+        name :"ALI",
+        payment_history: "WWWWW", phone_number:"QWEWE"}) {
+        id
+        name
+        payment_history
+        phone_number
+        created_at
+        updated_at
+        }	
+    }
+    mutation {
+	    createMerchant (input: {
+        name :"EERRER",
+        payment_history: "WWWWW", phone_number:"QWEWE"}) {
+        id
+        name
+        payment_history
+        phone_number
+        created_at
+        updated_at
+        }
+    }
+    query {
+        getSingleMerchant (id: "6cf9d631-a3b7-4b88-8065-1234f81ca2a2") {
+        id
+        name
+        payment_history
+        phone_number
+        created_at
+        updated_at
+        }
+    }
+    query {
+        getListMerchant(input:{limit:10,offset:0}){
+        getmerchants {
+        id
+        name
+        payment_history
+        phone_number
+        created_at
+        updated_at
+            }
+    count
+        }
+    }
+}
+
+Review  {
+    mutation {
+        createReview (input: {
+        user_id: "", 
+        merchant_id:"6cf9d631-a3b7-4b88-8065-1234f81ca2a2",
+        review_content:"HI", rate:5.0}) {
+        id
+        user_id
+        merchant_id
+        rate
+        review_content
+        created_at
+        updated_at
+        }
+    }
+    mutation {
+        updateReview (input: {
+        id : "b0a5f116-9bc6-41f4-a66c-9d085f0db993",
+        review_content:"aaaa", rate:5.0}) {
+        id
+        user_id
+        merchant_id
+        rate
+        review_content
+        created_at
+        updated_at
+        }
+    }
+    query {
+        getListReviews (input: {limit: 10, offset: 0}) {
+        getReviews
+            {
+            id
+            user_id
+            merchant_id
+            rate
+            review_content
+            created_at
+            updated_at
+            }
+        count
+        }
+    }
+    query {
+        getSingleReview (id: "b0a5f116-9bc6-41f4-a66c-9d085f0db993") {
+        id
+        user_id
+        merchant_id
+        rate
+        review_content
+        created_at
+        updated_at
+        }
+    }
+}

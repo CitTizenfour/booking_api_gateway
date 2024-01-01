@@ -1,0 +1,76 @@
+syntax="proto3";
+
+package order_service;
+option go_package="genproto/order_service";
+
+import "google/protobuf/empty.proto";
+
+
+message CreateKekeReq {
+    string keke_status = 1;
+    string keke_number = 2;
+    double started_price = 3;
+    double end_price = 4;
+    int32  place_count = 5;
+    string colour = 6;
+}
+
+message CreateKekeResponse {
+    string keke_status = 1;
+    string keke_number = 2;
+    double started_price = 3;
+    double end_price = 4;
+    int32  place_count = 5;
+    string colour = 6;
+    string id = 7;
+    string created_at = 8;
+    string updated_at = 9;
+}
+
+message KekeId {
+    string id = 1;
+}
+
+message GetSingleKekeResponse {
+    string keke_status = 1;
+    string keke_number = 2;
+    double started_price = 3;
+    double end_price = 4;
+    int32  place_count = 5;
+    string colour = 6;
+    string id = 7;
+    string created_at = 8;
+    string updated_at = 9;
+}
+
+message GetListKekesReq {
+    int32 limit = 1;
+    int32 offset = 2;
+}
+
+message GetListKekesResponse {
+    repeated GetSingleKekeResponse getKekes = 1;
+    int32 count = 2;
+}
+
+message UpdateKekeReq {
+    string keke_status = 1;
+    string keke_number = 2;
+    double started_price = 3;
+    double end_price = 4;
+    int32  place_count = 5;
+    string colour = 6;
+    string id = 7;
+}
+
+message UpdateKekeResponse {
+    string keke_status = 1;
+    string keke_number = 2;
+    double started_price = 3;
+    double end_price = 4;
+    int32  place_count = 5;
+    string colour = 6;
+    string id = 7;
+    string created_at = 8;
+    string updated_at = 9;
+}

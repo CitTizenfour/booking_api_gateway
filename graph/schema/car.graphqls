@@ -1,0 +1,90 @@
+extend type Mutation {
+  createCar(input: createCarReq): CreateCarResponse!
+  updateCar(input: updateCarReq): UpdateCarResponse!
+  deleteCar(id: String!): Empty!
+}
+
+extend type Query {
+  getListCars(input: GetListCarsReq!): GetListCarsResponse!
+  getSingleCar(id: String!): GetSingleCarResponse!
+}
+
+input GetListCarsReq {
+    limit: Int!
+    offset: Int!
+}
+
+type GetListCarsResponse {
+    getCars: [GetSingleCarResponse!]!
+    count: Int!
+}
+
+type GetSingleCarResponse {
+    is_covid: Boolean!
+    is_air_condt: Boolean!
+    car_status: String!
+    car_number: String!
+    car_name: String!
+    started_price: Float!
+    end_price: Float!
+    place_count: Int!
+    colour: String!
+    id: String!
+    created_at: String!
+    updated_at: String!
+}
+
+type CreateCarResponse {
+    is_covid: Boolean!
+    is_air_condt: Boolean!
+    car_status: String!
+    car_number: String!
+    car_name: String!
+    started_price: Float!
+    end_price: Float!
+    place_count: Int!
+    colour: String!
+    id: String!
+    created_at: String!
+    updated_at: String!
+}
+
+type UpdateCarResponse {
+    is_covid: Boolean!
+    is_air_condt: Boolean!
+    car_status: String!
+    car_number: String!
+    car_name: String!
+    started_price: Float!
+    end_price: Float!
+    place_count: Int!
+    colour: String!
+    id: String!
+    created_at: String!
+    updated_at: String!
+}
+
+input createCarReq {
+    is_covid: Boolean!
+    is_air_condt: Boolean!
+    car_status: String!
+    car_number: String!
+    car_name: String!
+    started_price: Float!
+    end_price: Float!
+    place_count: Int!
+    colour: String!
+}
+
+input updateCarReq {
+    is_covid: Boolean!
+    is_air_condt: Boolean!
+    car_status: String!
+    car_number: String!
+    car_name: String!
+    started_price: Float!
+    end_price: Float!
+    place_count: Int!
+    colour: String!
+    id: String!
+}

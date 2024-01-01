@@ -1,0 +1,94 @@
+extend type Mutation {
+  createBus(input: createBusReq): CreateBusResponse!
+  updateBus(input: updateBusReq): UpdateBusResponse!
+  deleteBus(id: String!): Empty!
+}
+
+extend type Query {
+  getListBuses(input: GetListBusesReq!): GetListBusesResponse!
+  getSingleBus(id: String!): GetSingleBusResponse!
+}
+
+input GetListBusesReq {
+    limit: Int!
+    offset: Int!
+}
+
+type GetListBusesResponse {
+    getBuses: [GetSingleBusResponse!]!
+    count: Int!
+}
+
+type GetSingleBusResponse {
+    id: String!
+    driver_id: String!
+    merchant_id: String!
+    region_id: String!
+    bus_status: String!
+    bus_name: String!
+    bus_number: String!
+    bus_type: String!
+    started_price: Float!
+    end_price: Float!
+    booking_count: Int!
+    place_count: Int!
+    created_at: String!
+    updated_at: String!
+}
+
+type CreateBusResponse {
+    id: String!
+    driver_id: String!
+    merchant_id: String!
+    region_id: String!
+    bus_status: String!
+    bus_name: String!
+    bus_number: String!
+    bus_type: String!
+    started_price: Float!
+    end_price: Float!
+    booking_count: Int!
+    place_count: Int!
+    created_at: String!
+    updated_at: String!
+}
+
+type UpdateBusResponse {
+    id: String!
+    bus_status: String!
+    bus_name: String!
+    bus_number: String!
+    bus_type: String!
+    started_price: Float!
+    end_price: Float!
+    booking_count: Int!
+    place_count: Int!
+    created_at: String!
+    updated_at: String!
+}
+
+input createBusReq {
+    driver_id: String!
+    merchant_id: String!
+    region_id: String!
+    bus_status: String!
+    bus_name: String!
+    bus_number: String!
+    bus_type: String!
+    started_price: Float!
+    end_price: Float!
+    booking_count: Int!
+    place_count: Int!
+}
+
+input updateBusReq {
+    bus_status: String!
+    bus_name: String!
+    bus_number: String!
+    bus_type: String!
+    started_price: Float!
+    end_price: Float!
+    booking_count: Int!
+    place_count: Int!
+    id: String!
+}
