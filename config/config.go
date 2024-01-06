@@ -50,8 +50,8 @@ func Load() Config {
 	config.DefaultOffset = cast.ToString(getOrReturnDefaultValue("DEFAULT_OFFSET", "0"))
 	config.DefaultLimit = cast.ToString(getOrReturnDefaultValue("DEFAULT_LIMIT", "10"))
 
-	config.OrderServiceHost = cast.ToString(getOrReturnDefaultValue("ORDER_SERVICE_HOST", "booking_go_service"))
-	config.OrderServicePort = cast.ToString(getOrReturnDefaultValue("ORDER_SERVICE_PORT", "8087"))
+	config.OrderServiceHost = cast.ToString(getOrReturnDefaultValue("ORDER_SERVICE_HOST", ""))
+	config.OrderServicePort = cast.ToString(getOrReturnDefaultValue("ORDER_SERVICE_PORT", ""))
 
 	return config
 }
