@@ -13,6 +13,20 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+type MyValidationError struct {
+	Message string
+}
+
+func (e *MyValidationError) Error() string {
+	return e.Message
+}
+
+func isValidationErr(err error) bool {
+	// Check if the error is of type MyValidationError
+	_, ok := err.(*MyValidationError)
+	return ok
+}
+
 // CreateReview is the resolver for the createReview field.
 func (r *mutationResolver) CreateReview(ctx context.Context, input *model.CreateReviewReq) (*model.CreateReviewResponse, error) {
 	getReview, err := r.ReviewService().CreateReview(
@@ -24,7 +38,7 @@ func (r *mutationResolver) CreateReview(ctx context.Context, input *model.Create
 		})
 	if err != nil {
 		r.LoggerI.Error("!!!CreateReview--->", logger.Error(err))
-		return nil, status.Error(codes.InvalidArgument, err.Error())
+		return nil, &MyValidationError{Message: err.Error()}
 	}
 	resp := &model.CreateReviewResponse{
 		ID:            getReview.Id,

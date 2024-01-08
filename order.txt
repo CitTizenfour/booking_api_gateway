@@ -21,7 +21,7 @@ ORDER {
       }
     }
     mutation {
-      createOrder(input: { user_id: "77029d6b-574e-4623-8dd5-ed5935a0a111", merchant_id: "77029d6b-574e-4623-8dd5-ed5935a0a456" }) {
+      createOrder(input: { user_id: "<USER_ID>", merchant_id: "<MERCHANT_ID>" }) {
         id
         user_id
         merchant_id
